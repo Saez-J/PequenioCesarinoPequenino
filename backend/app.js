@@ -9,6 +9,7 @@ import adminRoutes from "./src/routes/admin.js";
 import cookieParser from "cookie-parser";
 import loginCustomer from "./src/routes/loginCustomer.js"
 import logoutCustomer from "./src/routes/logout.js"
+import recoveryPassword from "./src/routes/recoveryPassword.js"
 import cors from "cors"
 
 //Creo una constante que es igual a
@@ -35,5 +36,6 @@ app.use("/api/registerEmployees", registerEmployees);
 app.use("/api/Admin", adminRoutes);
 app.use("/api/loginCustomers", loginCustomer);
 app.use("/api/logoutCustomer", logoutCustomer);
+app.use("/api/recoveryPassword", recoveryPassword)
 
 export default app;
