@@ -68,3 +68,22 @@ providerController.updateProvider = async (req, res) => {
     }
 };
 
+//eliminar
+providerController.deleteProvider = async (req, res) =>{
+    try {
+        const providerFound = await providerModel.findById(req.params.id);
+
+        //Elimino la imagen de cloudinary
+        await cloudinary.uploader.destroy(providerFound.public_id);
+
+        //Eliminamos el registro de la base de datos
+        await providerModel.findByIdAndDelete(req.params.id)
+
+        return res.status(200).json({message: "Provider Deleted Successfully"})
+    } catch (error) {
+        console.log("error " + error)
+        return res.status(500).json({message: "Internal Server Error"})
+    }
+};
+
+export default providerController;
