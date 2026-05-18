@@ -37,5 +37,6 @@ app.use("/api/Admin", adminRoutes);
 app.use("/api/loginCustomers", loginCustomer);
 app.use("/api/logoutCustomer", logoutCustomer);
 app.use("/api/recoveryPassword", recoveryPassword)
+app.use("api/providers", )
 
 export default app;
